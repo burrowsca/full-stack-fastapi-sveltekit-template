@@ -7,11 +7,13 @@
 		"build": "vite build",
 		"lint": "biome check --write --unsafe --no-errors-on-unmatched --files-ignore-unknown=true ./",
 		"preview": "vite preview",
+    "generate-client": "openapi-ts --input ./openapi.json --output ./src/client --client axios --exportSchemas true",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.2",
+		"@hey-api/openapi-ts": "^0.47.2",
 		"@skeletonlabs/skeleton": "2.10.1",
 		"@skeletonlabs/tw-plugin": "0.4.0",
 		"@sveltejs/adapter-auto": "^3.2.2",
