@@ -1,5 +1,11 @@
+<script>
+import Login from "$lib/login.svelte";
+</script>
+
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-5">
-		<h1 class="h1">Login Page</h1>
+		<h1 class="h1">Login</h1>
 	</div>
 </div>
+
+<Login />
