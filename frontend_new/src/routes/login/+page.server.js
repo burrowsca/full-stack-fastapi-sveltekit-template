@@ -1,4 +1,5 @@
 import { loginAccessToken, OpenAPI } from "../../client";
+import { redirect } from "@sveltejs/kit";
 
 /** @type {import('./$types').Actions} */
 export const actions = {
@@ -11,5 +12,18 @@ export const actions = {
 			formData: { username, password },
 		});
 		console.log("response", response);
+
+		// TODO - handle error response
+
+		// Set the access token in a cookie
+		cookies.set("access_token", response.access_token, {
+			httpOnly: true,
+			sameSite: "lax",
+			secure: true,
+			path: "/",
+		});
+
+		// Redirect to the home page
+		return redirect(303, "/");
 	},
 };
