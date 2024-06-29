@@ -1,20 +1,14 @@
 <script>
 import Logo from "$lib/images/fastapi-logo.svg";
 
-let username = "";
-let password = "";
 let show_password = false;
-
-const handleInput = (event) => {
-	password = event.target.value;
-};
 </script>
 
-<form class="h-screen max-w-sm mx-auto flex flex-col justify-center gap-4 p-8">
+<form method="POST" class="h-screen max-w-sm mx-auto flex flex-col justify-center gap-4 p-8">
   <img src={Logo} alt="FastAPI logo" class="self-center mb-4 h-auto max-w-xs" />
   <input
-    bind:value={username}
-    title="Username"
+    title="Email"
+	name="username"
     placeholder="Email"
     type="email"
     required
@@ -22,15 +16,14 @@ const handleInput = (event) => {
   />
   <div class="input-group grid-cols-[1fr_auto]">
     <input
-      value={password}
       title="Password"
+	  name="password"
       placeholder="Password"
       type={show_password ? "text" : "password"}
       required
       class="input"
-      on:input={handleInput}
     />
-    <button on:click={() => (show_password = !show_password)}>
+    <button type="button" on:click={() => (show_password = !show_password)}>
       <!-- Solid Eye Icon Heroicons-->
       <svg
         xmlns="http://www.w3.org/2000/svg"
